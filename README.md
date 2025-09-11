@@ -1,0 +1,1 @@
+Atividades e exercícios referentes a disciplina "Programação Orientada a Objetos 2", do IFMG.
