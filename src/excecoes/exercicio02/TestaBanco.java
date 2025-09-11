@@ -1,5 +1,7 @@
 package excecoes.exercicio02;
 
+import java.util.Random;
+
 public class TestaBanco {
     public static void main(String[] args) {
         Conta[] contas = new Conta[5];
@@ -10,22 +12,30 @@ public class TestaBanco {
         contas[4] = new Conta(5, 50, false, 0);
 
         Banco banco = new Banco(contas);
+        Random random = new Random();
 
-        try {
-            banco.transferencia(1, 2, 200);
-            banco.transferencia(2, 3, 700);
-            banco.transferencia(3, 4, 100);
-            banco.transferencia(4, 5, 300);
-            banco.transferencia(5, 1, 20);
-            banco.transferencia(2, 1, 50);
-            banco.transferencia(4, 2, 400);
-            banco.transferencia(1, 5, 100);
-            banco.transferencia(5, 3, 10);
-            banco.transferencia(3, 2, 20);
-        } catch (CNEException | SIException e) {
-            System.out.println("Erro na transferência: " + e.getMessage());
+        System.out.println("Iniciando testes de transferência aleatória:");
+
+        for (int i = 0; i < 10; i++) {
+            int idOrigem = random.nextInt(8);
+            int idDestino = random.nextInt(8);
+
+            while (idOrigem == idDestino) {
+                idDestino = random.nextInt(8);
+            }
+
+            double valor = random.nextInt(500) + 10; 
+
+            System.out.printf("---\nTeste " + (i + 1) + ": Transferindo R$" + valor + " da conta " + idOrigem + " para a conta " + idDestino  + "\n\n");
+
+            try {
+                banco.transferencia(idOrigem, idDestino, valor);
+            } catch (CNEException | SIException e) {
+                System.out.println("ERRO: " + e.getMessage()  + "\n\n");
+            }
         }
-
+        
+        System.out.println("\n--- Balanço final ---");
         banco.balanco();
     }
 }
