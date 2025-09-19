@@ -1,4 +1,4 @@
-package classesAninhadas;
+package classesAninhadas.pedido;
 
 import java.util.*;
 
