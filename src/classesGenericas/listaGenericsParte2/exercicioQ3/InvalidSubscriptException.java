@@ -1,4 +1,4 @@
-package classesGenericas.exercicioQ2;
+package classesGenericas.listaGenericsParte2.exercicioQ3;
 
 class InvalidSubscriptException extends RuntimeException {
     public InvalidSubscriptException(String msg) {

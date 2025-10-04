@@ -1,20 +1,20 @@
-package classesGenericas.exercicioQ3;
+package classesGenericas.listaGenericsParte2.exercicioQ2;
 
-public class ExercicioQ3 {
+public class ExercicioQ2 {
 
-    public static void printArray(String[] array, int lowSubscript, int rightSubscript) {
+    public static <T> void printArray(T[] array, int lowSubscript, int rightSubscript) {
         if (lowSubscript < 0 || rightSubscript > array.length || lowSubscript >= rightSubscript) {
             throw new InvalidSubscriptException("Intervalo inválido: " + lowSubscript + " a " + rightSubscript);
         }
 
         for (int i = lowSubscript; i < rightSubscript; i++) {
-            System.out.print(array[i] + "\t");
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }
 
     public static void main(String[] args) {
         String[] nomes = {"Ana", "Bruno", "Carlos", "Diana"};
-        ExercicioQ3.printArray(nomes, 1, 3);
+        ExercicioQ2.printArray(nomes, 1, 3);
     }
 }

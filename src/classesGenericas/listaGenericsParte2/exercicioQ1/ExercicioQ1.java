@@ -1,4 +1,4 @@
-package classesGenericas.exercicioQ1;
+package classesGenericas.listaGenericsParte2.exercicioQ1;
 
 public class ExercicioQ1 {
 
